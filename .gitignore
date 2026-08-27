@@ -1,0 +1,20 @@
+# Patient-level clinical data
+*.csv
+*.xlsx
+*.xls
+*.sav
+
+# Serialized models / clinical reference objects
+*.pkl
+*.joblib
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
