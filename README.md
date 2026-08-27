@@ -51,3 +51,10 @@ https://mgps-tabicl-model.streamlit.app
 
 ```bash
 pip install -r requirements.txt
+## Reproducibility note
+
+The source code for model inference, SHAP interpretation and applicability-domain
+assessment is provided for methodological transparency. Patient-level development
+data and serialized clinical model objects are not distributed publicly because
+of institutional privacy restrictions. Researchers interested in reproducibility
+may contact the corresponding author subject to institutional approval.
