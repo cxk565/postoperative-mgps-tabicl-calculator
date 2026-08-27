@@ -3,9 +3,9 @@
 This repository contains the source code for the web-based research prototype
 described in:
 
-"Preoperative Risk Stratification for Postoperative Inflammatory–Nutritional
+**Preoperative Risk Stratification for Postoperative Inflammatory–Nutritional
 Deterioration After Colorectal Cancer Surgery: An Interpretable Machine
-Learning Study"
+Learning Study**
 
 ## Overview
 
@@ -33,6 +33,12 @@ This application is a research prototype and is not a validated clinical
 decision-support system. Model outputs should not replace independent
 clinical judgement.
 
+## Web application
+
+The online research prototype is available at:
+
+https://mgps-tabicl-model.streamlit.app
+
 ## Data availability
 
 Patient-level clinical data are not included in this repository because of
@@ -43,18 +49,9 @@ institutional data-protection and patient-privacy requirements.
 Serialized fitted model objects are not publicly distributed because they may
 retain information derived from the model-development cohort.
 
-## Web application
-
-https://mgps-tabicl-model.streamlit.app
-
 ## Installation
+
+Install the required Python packages using:
 
 ```bash
 pip install -r requirements.txt
-## Reproducibility note
-
-The source code for model inference, SHAP interpretation and applicability-domain
-assessment is provided for methodological transparency. Patient-level development
-data and serialized clinical model objects are not distributed publicly because
-of institutional privacy restrictions. Researchers interested in reproducibility
-may contact the corresponding author subject to institutional approval.
