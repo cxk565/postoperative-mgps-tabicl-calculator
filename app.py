@@ -149,8 +149,31 @@ with col_title:
     )
 
 
+# ============================================================
+# Reviewer-requested prominent research-use warning
+# ============================================================
+
+st.error(
+    """
+⚠️ RESEARCH USE ONLY — NOT FOR CLINICAL DECISION-MAKING
+
+This tool is a research prototype and has not been validated for clinical deployment.
+
+Learning-curve analyses demonstrated suboptimal convergence, with relatively flat
+cross-validation trajectories and persistent separation between training and
+cross-validation performance. Stable and generalisable learning dynamics have
+therefore not yet been established within the available development cohort.
+
+This tool MUST NOT be used for clinical decision-making, patient care, treatment
+selection, or any other real-world clinical purpose. Further model development,
+independent external validation, and prospective evaluation are required before
+clinical implementation can be considered.
+"""
+)
+
+
 st.markdown(
-    """<div style="background-color:#EBF5FB;padding:15px;border-radius:10px;border-left:5px solid #2980B9;margin-bottom:25px;color:#154360;font-size:15px;line-height:1.6;"><b>📊 System Introduction:</b><br><br>This research prototype integrates eight routinely available preoperative clinical indicators to estimate the probability of postoperative <b>modified Glasgow Prognostic Score (mGPS) = 2</b> in patients undergoing colorectal cancer surgery.<br><br>The platform provides TabICLv2-based risk estimation, SHAP-based local feature attribution, and an applicability-domain assessment indicating whether the patient's feature profile is adequately represented by the model-development cohort.<br><br>Model outputs are intended for research-stage risk stratification and should not replace independent clinical judgement.</div>""",
+    """<div style="background-color:#EBF5FB;padding:15px;border-radius:10px;border-left:5px solid #2980B9;margin-bottom:25px;color:#154360;font-size:15px;line-height:1.6;"><b>📊 System Introduction:</b><br><br>This research prototype integrates eight routinely available preoperative clinical indicators to estimate the probability of postoperative <b>modified Glasgow Prognostic Score (mGPS) = 2</b> in patients undergoing colorectal cancer surgery.<br><br>The platform provides TabICLv2-based risk estimation, SHAP-based local feature attribution, and an applicability-domain assessment indicating whether the patient's feature profile is adequately represented by the model-development cohort.<br><br><b>Research-use restriction:</b> The platform is intended exclusively for research and demonstration. It is not a validated clinical decision-support system and must not be used for clinical decision-making or patient care.</div>""",
     unsafe_allow_html=True,
 )
 
@@ -1077,7 +1100,7 @@ with st.sidebar.expander(
 # ============================================================
 
 st.markdown(
-    "### 👨‍⚕️ Clinical Parameter Input Matrix"
+    "### 🧪 Research Parameter Input Matrix"
 )
 
 
@@ -1581,15 +1604,15 @@ if st.button(
 
                 st.warning(
 
-                    "⚠️ **Higher-risk stratum.** "
+                    "⚠️ **Higher-risk stratum (research output only).** "
                     "The predicted probability is above the "
                     "training-derived operating threshold "
                     f"({OPERATING_THRESHOLD:.3f}). "
 
-                    "This result is intended for research-stage "
-                    "risk stratification and should be interpreted "
-                    "together with the patient's overall clinical "
-                    "assessment."
+                    "This output is provided solely for research and "
+                    "demonstration. It must not be used for clinical "
+                    "decision-making, patient care, treatment selection, "
+                    "or other real-world clinical purposes."
 
                 )
 
@@ -1598,15 +1621,16 @@ if st.button(
 
                 st.info(
 
-                    "ℹ️ **Lower-risk stratum.** "
+                    "ℹ️ **Lower-risk stratum (research output only).** "
                     "The predicted probability is below the "
                     "training-derived operating threshold "
                     f"({OPERATING_THRESHOLD:.3f}). "
 
                     "A lower model-estimated risk does not exclude "
-                    "postoperative inflammatory–nutritional "
-                    "deterioration and should not replace "
-                    "clinical assessment."
+                    "postoperative inflammatory–nutritional deterioration. "
+                    "This output is provided solely for research and "
+                    "demonstration and must not be used for clinical "
+                    "decision-making or patient care."
 
                 )
 
@@ -2049,14 +2073,21 @@ st.markdown(
 )
 
 
-st.caption(
+st.error(
+    """
+⚠️ FINAL RESEARCH-USE DISCLAIMER
 
-    "Research-use disclaimer: This calculator is a research "
-    "prototype developed from a single-centre retrospective cohort. "
-    "It is not a validated medical device or a substitute for "
-    "independent clinical judgement. External validation and "
-    "prospective evaluation are required before routine clinical "
-    "implementation. No patient-identifiable information should "
-    "be entered into this platform."
+This calculator is a research prototype developed from a single-centre
+retrospective cohort. Learning-curve analysis demonstrated suboptimal
+convergence, and stable, generalisable learning dynamics have not yet been
+established.
 
+The calculator is not a validated medical device or clinical decision-support
+system and MUST NOT be used for clinical decision-making, patient care,
+treatment selection, or other real-world clinical purposes.
+
+Further model development, independent external validation, and prospective
+evaluation are required before clinical implementation can be considered.
+No patient-identifiable information should be entered into this platform.
+"""
 )
